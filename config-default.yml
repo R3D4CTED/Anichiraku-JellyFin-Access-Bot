@@ -1,0 +1,8 @@
+
+bot:
+  prefix: "*"
+  token: !ENV "BOT_TOKEN" # REQUIRED
+  log_level: !ENV "LOG_LEVEL"
+  
+config:
+  required_keys: ['bot.token']
