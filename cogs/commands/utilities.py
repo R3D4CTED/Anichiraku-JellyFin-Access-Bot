@@ -7,6 +7,8 @@ import io
 import logging
 import textwrap
 import traceback
+import re
+from contextlib import redirect_stdout
 
 import discord
 from discord.ext import commands

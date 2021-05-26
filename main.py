@@ -1,6 +1,6 @@
 import discord
 from discord.ext import commands
-import constants
+import config
 import glob
 
 import __init__
@@ -9,7 +9,7 @@ import logging
 log = logging.getLogger(__name__)
 
 bot = commands.Bot(
-    command_prefix=constants.Bot.prefix,
+    command_prefix=config.bot_prefix,
     intents=discord.Intents(messages=True, guilds=True, members=True, bans=True, reactions=True),
     case_insensitive=True)
 
@@ -26,7 +26,7 @@ async def on_ready():
     await bot.change_presence(
         activity=discord.Activity(
             type=discord.ActivityType.playing,
-            name=f"with [REDACTED]."
+            name=f"Anime on Anichiraku Media."
         )
     )
 
@@ -43,5 +43,5 @@ if __name__ == '__main__':
             continue
 
     # Finally, run the bot.
-    bot.run(constants.Bot.token)
+    bot.run(config.bot_token)
 
