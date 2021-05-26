@@ -1,0 +1,7 @@
+###### Requirements without Version Specifiers ######
+coloredlogs                         # https://coloredlogs.readthedocs.io/en/latest/
+requests
+
+
+###### Requirements with Version Specifiers ######
+discord.py==1.6.0                   # https://discordpy.readthedocs.io/
