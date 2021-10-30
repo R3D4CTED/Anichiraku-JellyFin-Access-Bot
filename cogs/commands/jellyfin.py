@@ -24,7 +24,7 @@ class JellyFinCog(commands.Cog):
     @commands.is_owner()
     @commands.before_invoke(record_usage)
     @commands.command(name="addmember", aliases=['am', 'add_member', 'add_user', 'adduser'])
-    async def add_to_jellyfin(self, ctx: Context, member: discord.Member, username: str = None):
+    async def add_to_jellyfin(self, ctx: Context, member: discord.Member, *, username: str = None):
         """ Manually add a member to the media centre. """
         
         async with ctx.typing():
@@ -56,6 +56,8 @@ class JellyFinCog(commands.Cog):
 
             requests.post(url=f"{config.jellyfin_base_url}/Users/{user_id}/Policy", json=body, 
                         headers={"X-Emby-Token": config.jellyfin_api_key})
+            
+            logging.info(f"Created a user with user id: {user_id}")
 
             body = {
                 "EnableRemoteAccess" : True
@@ -65,7 +67,7 @@ class JellyFinCog(commands.Cog):
                         headers={"X-Emby-Token": config.jellyfin_api_key})        
     
 
-            log.info(f"User created with user id: {user_id}.")
+            log.info(f"Enabled remote access for user: {user_id}.")
 
             try:
                 embed = embeds.make_embed(title="Welcome to Anichiraku Media Beta!", color="gold")
