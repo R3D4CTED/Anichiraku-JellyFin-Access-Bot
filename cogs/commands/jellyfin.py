@@ -23,7 +23,7 @@ class JellyFinCog(commands.Cog):
     
     @commands.is_owner()
     @commands.before_invoke(record_usage)
-    @commands.command(name="addmember", aliases=['am', 'add_member'])
+    @commands.command(name="addmember", aliases=['am', 'add_member', 'add_user', 'adduser'])
     async def add_to_jellyfin(self, ctx: Context, member: discord.Member, username: str = None):
         """ Manually add a member to the media centre. """
         
